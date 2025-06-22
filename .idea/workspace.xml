@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e72c8dd2-9f4a-460a-937e-9cd3b3440620" name="Changes" comment="add handlers, keyboards">
+    <list default="true" id="e72c8dd2-9f4a-460a-937e-9cd3b3440620" name="Changes" comment="add dictionary.json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,13 +101,22 @@
       <option name="project" value="LOCAL" />
       <updated>1750191218942</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add dictionary.json">
+      <option name="closed" value="true" />
+      <created>1750264960660</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1750264960660</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start" />
     <MESSAGE value="add command start, help" />
     <MESSAGE value="add handlers, keyboards" />
-    <option name="LAST_COMMIT_MESSAGE" value="add handlers, keyboards" />
+    <MESSAGE value="add dictionary.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="add dictionary.json" />
   </component>
 </project>
