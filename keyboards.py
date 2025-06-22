@@ -8,7 +8,7 @@ def load_words_from_json(current_level="A1") -> list[dict]:
     return data.get(current_level, [])
 
 main = ReplyKeyboardMarkup(keyboard=[
-    [KeyboardButton(text='✏️ Тестування'), KeyboardButton(text='💬 Вікторина')],
+    [KeyboardButton(text='✏️ Тестування')],
     [KeyboardButton(text='💪 Складність'), KeyboardButton(text='❔ Довідка')]
 ],
     resize_keyboard=True,
@@ -46,15 +46,29 @@ def get_words(words: list[dict]) -> tuple[str, str, list[str]]:
 
     return question_word, correct_answer, all_options
 
+def generate_question(current_level, mode):
+    words = load_words_from_json(current_level)
+    word_pair = random.choice(words)
+
+    if mode == "eng_to_ua":
+        question = word_pair["en"]
+        correct = word_pair["ua"]
+        distractors = [w["ua"] for w in words if w["ua"] != correct]
+    else:
+        question = word_pair["ua"]
+        correct = word_pair["en"]
+        distractors = [w["en"] for w in words if w["en"] != correct]
+
+    incorrect = random.sample(distractors, k=min(3, len(distractors)))
+    options = incorrect + [correct]
+    random.shuffle(options)
+
+    keyboard = build_answer_keyboard(options)
+    return question, correct, keyboard
+
 def build_answer_keyboard(options: list[str]) -> InlineKeyboardMarkup:
     buttons = [
         [InlineKeyboardButton(text=opt, callback_data=f"answer_{opt}")]
         for opt in options
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
-
-def generate_question(current_level="A1"):
-    words = load_words_from_json(current_level)
-    question_word, correct_answer, options = get_words(words)
-    keyboard = build_answer_keyboard(options)
-    return question_word, correct_answer, keyboard
