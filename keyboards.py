@@ -32,20 +32,6 @@ language = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='🇬🇧 ENG→UA', callback_data='eng_to_ua'), InlineKeyboardButton(text='🇺🇦 UA→ENG', callback_data='ua_to_eng')]
 ])
 
-def get_words(words: list[dict]) -> tuple[str, str, list[str]]:
-    correct = random.choice(words)
-    other_options = [w["ua"] for w in words if w != correct]
-    random.shuffle(other_options)
-    incorrect = other_options[:3]
-
-    all_options = incorrect + [correct["ua"]]
-    random.shuffle(all_options)
-
-    question_word = correct["en"]
-    correct_answer = correct["ua"]
-
-    return question_word, correct_answer, all_options
-
 def generate_question(current_level, mode):
     words = load_words_from_json(current_level)
     word_pair = random.choice(words)
